@@ -1,11 +1,25 @@
 import React from "react";
-import Grid from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 import Product from "./Product/Product";
 
 const products = [
-  { id: 1, name: "Shoes", description: "Runing shoes", price: "$5" },
-  { id: 2, name: "Macbook", description: "Apple Macbook", price: "$10" },
+  {
+    id: 1,
+    name: "Shoes",
+    description: "Runing shoes",
+    price: "$5",
+    image:
+      "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/192257/02/sv01/fnd/PNA/fmt/png/Flyer-Runner-Men's-Running-Shoes",
+  },
+  {
+    id: 2,
+    name: "Macbook",
+    description: "Apple Macbook",
+    price: "$10",
+    image:
+      "https://i.pcmag.com/imagery/reviews/038Dr5TVEpwIv8rCljx6UcF-13..1588802180.jpg",
+  },
 ];
 
 const Products = () => {
