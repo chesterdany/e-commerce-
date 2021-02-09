@@ -22,11 +22,11 @@ const Navbar = () => {
           <Typography variant="h6" className={classes.title} color="inherit">
             <img
               src={logo}
-              alt="Commerce.js"
+              alt="My Store"
               height="25px"
               className={classes.image}
             />
-            Commerce.js
+            My Store
           </Typography>
           <div className={classes.grow}></div>
           <div className={classes.button}>
