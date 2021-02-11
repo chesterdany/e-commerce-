@@ -9,7 +9,7 @@ import {
   CardMedia,
 } from "@material-ui/core";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, updateQTYHandler, removeFromCartHandler }) => {
   const classes = useStyles();
 
   return (
@@ -27,15 +27,28 @@ const CartItem = ({ item }) => {
       </CardContent>
       <CardActions className={classes.CardActions}>
         <div className={classes.buttons}>
-          <Button type="button" size="small">
+          <Button
+            type="button"
+            size="small"
+            onClick={() => updateQTYHandler(item.id, item.quantity - 1)}
+          >
             -
           </Button>
           <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small">
+          <Button
+            type="button"
+            size="small"
+            onClick={() => updateQTYHandler(item.id, item.quantity + 1)}
+          >
             +
           </Button>
         </div>
-        <Button variant="contained" type="button" color="secondary">
+        <Button
+          variant="contained"
+          type="button"
+          color="secondary"
+          onClick={() => removeFromCartHandler(item.id)}
+        >
           Remove
         </Button>
       </CardActions>

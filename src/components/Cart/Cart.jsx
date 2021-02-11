@@ -5,7 +5,12 @@ import useStyles from "./styles.js";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
 
-const Cart = ({ cart }) => {
+const Cart = ({
+  cart,
+  updateQTYHandler,
+  removeFromCartHandler,
+  emptyCartHandler,
+}) => {
   const classes = useStyles();
 
   if (!cart.line_items) {
@@ -26,7 +31,11 @@ const Cart = ({ cart }) => {
       <Grid container spacing={3}>
         {cart.line_items.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
-            <CartItem item={item} />
+            <CartItem
+              item={item}
+              updateQTYHandler={updateQTYHandler}
+              removeFromCartHandler={removeFromCartHandler}
+            />
           </Grid>
         ))}
       </Grid>
@@ -41,6 +50,7 @@ const Cart = ({ cart }) => {
             type="button"
             variant="contained"
             color="secondary"
+            onClick={emptyCartHandler}
           >
             Empty Cart
           </Button>
