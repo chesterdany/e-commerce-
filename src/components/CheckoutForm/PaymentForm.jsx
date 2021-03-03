@@ -13,12 +13,14 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
 
 		if (!stripe || !elements) return;
 
-		const cardElement = elements.getElements(CardElement);
+		const cardElement = elements.getElement(CardElement);
 
 		const { error, paymentMethod } = await stripe.createPaymentMethod({
 			type: 'card',
 			card: cardElement,
 		});
+
+		console.log(shippingData);
 
 		if (error) {
 			console.log(error);
@@ -26,8 +28,8 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
 			const orderData = {
 				list_items: checkoutToken.live.line_items,
 				customer: {
-					firstname: shippingData.firstName,
-					lastname: shippingData.lastName,
+					firstname: shippingData.FirstName,
+					lastname: shippingData.LastName,
 					email: shippingData.email,
 				},
 				shipping: {
@@ -35,10 +37,10 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
 					street: shippingData.address1,
 					town_city: shippingData.city,
 					county_state: shippingData.shippingSubdivision,
-					postal_zip_code: shippingData.zip,
+					postal_zip_code: shippingData.Zip,
 					country: shippingData.shippingCountry,
 				},
-				fullfillment: { shipping_method: shippingData.shippingOption },
+				fullfillment: { shipping_method: shippingData.setShippingOption },
 				payment: {
 					gateway: 'stripe',
 					stripe: {
@@ -47,8 +49,8 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, onCaptureCheckout,
 				},
 			};
 
+			console.log(orderData);
 			onCaptureCheckout(checkoutToken.id, orderData);
-
 			nextStep();
 		}
 	};
