@@ -1,8 +1,8 @@
 # Memories App
 
-### [Live](https://chesterdany.github.io/memories-app/)
+### [Live](https://test-ecommerce22.netlify.app/)
 
-![Memories app](https://i.ibb.co/ZVC16w2/memories-App.png)
+![E-commerce app](https://i.ibb.co/MgYkTQY/ecommerce.png)
 
 ### Introduction 
-The most complex app I made. I used React with MaterialUI, Redux, ReactRouter for client side and node.js, express, mongoose for server side.
+A simple E-commerce site frontend only but made using commerce.js for backend and stripe for payment option. 
