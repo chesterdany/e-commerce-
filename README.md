@@ -1,4 +1,4 @@
-# Memories App
+# E-commerce App
 
 ### [Live](https://test-ecommerce22.netlify.app/)
 
